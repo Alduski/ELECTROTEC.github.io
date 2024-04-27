@@ -1,1 +1,0 @@
-# ELECTROTEC.github.io
