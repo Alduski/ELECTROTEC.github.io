@@ -170,45 +170,44 @@
         }
 
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
+  display: none; /* Oculta la ventana modal por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); /* Fondo oscuro semi-transparente */
+}
 
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/electrotec.png?raw=true" alt="Logo de la tienda">
+            <img src="Downloads/electrotec.png" alt="Logo de la tienda">
         </div>
         <div class="left-buttons">
             <button onclick="mostrarProductosMasVendidos()">Inicio</button>
@@ -233,10 +232,10 @@
         </form>
         <p><a href="#">Crear nuevo usuario</a></p>
     </div>
-     
+    
     <div class="productos-container">
         <div class="productos-row">
-          <div class="producto"id="kitArduino">
+            <div class="producto"id="kitArduino">
     
                 <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/KIT%20DE%20ARDUINO.jpg?raw=true" alt="Producto 1" style="width: 200px; height: auto;">
                 <h3>KIT ARDUINO</h3>
@@ -392,13 +391,13 @@
                 <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
             </div>
         </div>
-    </div> 
+    </div>
 
     <footer>
         <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Ventana modal para carrito -->
+    <!-- carrito -->
     <div id="carritoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrarModal('carritoModal')">&times;</span>
@@ -408,7 +407,7 @@
         </div>
     </div>
 
-    <!-- Ventana modal para contacto -->
+    <!--  contacto -->
     <div id="contactoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrarModal('contactoModal')">&times;</span>
@@ -425,112 +424,165 @@
     </div>
 
     <script>
-        // Función para mostrar el formulario de inicio de sesión
-        function mostrarLogin() {
-    // Ocultar el contenido principal
-    var contenidoPrincipal = document.querySelector('.productos-container');
-    contenidoPrincipal.style.display = 'none';
+        // Función para mostrar el formulario de inicio de sesión y ocultar el contenido principal
+    function mostrarLogin() {
+        var contenidoPrincipal = document.querySelector('.productos-container');
+        contenidoPrincipal.style.display = 'none';
 
-    // Mostrar el formulario de inicio de sesión
-    var loginForm = document.getElementById("loginForm");
-    loginForm.style.display = "block";
-
-    
-    // Mostrar el formulario de inicio de sesión
-    var loginForm = document.getElementById("loginForm");
-    loginForm.style.display = "block";
-}
-
-        // Función para redireccionar a la página de productos
-        function verProductos() {
-            alert("Redireccionando a la página de Productos");
-            // Aquí puedes agregar la lógica de redirección
-        }
-
-        // Función para redireccionar a la página de perfil de usuario
-        function perfilUsuario() {
-            alert("Redireccionando a la página de Perfil de Usuario");
-            // Aquí puedes agregar la lógica de redirección
-        }
-
-        // Función para agregar un producto al carrito
-        function agregarAlCarrito() {
-            alert("Producto agregado al carrito");
-            // Aquí puedes agregar la lógica de agregar al carrito
-        }
-
-        // Función para abrir un modal específico
-        function abrirModal(idModal) {
-            var modal = document.getElementById(idModal);
-            modal.style.display = "block";
-        }
-
-        // Función para cerrar un modal específico
-        function cerrarModal(idModal) {
-            var modal = document.getElementById(idModal);
-            modal.style.display = "none";
-        }
-
-        // Función para procesar el pago
-        function pagar() {
-            alert("¡Pago procesado con éxito!");
-            // Aquí puedes agregar la lógica de procesamiento de pago
-        }
-
-        // Función para mostrar la descripción de un producto
-        function mostrarDescripcion(idDescripcion) {
-            var descripcion = document.getElementById(idDescripcion);
-            if (descripcion.style.display === "none") {
-                descripcion.style.display = "block";
-            } else {
-                descripcion.style.display = "none";
-            }
-        }
-
-        // Función para cerrar el modal al hacer clic fuera de él
-        window.onclick = function(event) {
-            var modals = document.getElementsByClassName("modal");
-            for (var i = 0; i < modals.length; i++) {
-                var modal = modals[i];
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        }
-        // Función para mostrar los cuatro productos más vendidos
-function mostrarProductosMasVendidos() {
-    // Ocultar todos los productos
-    var productos = document.querySelectorAll('.producto');
-    productos.forEach(function(producto) {
-        producto.style.display = 'none';
-    });
-    // Mostrar solo los cuatro primeros productos
-    for (var i = 0; i < 4; i++) {
-        productos[i].style.display = 'block';
+        var loginForm = document.getElementById("loginForm");
+        loginForm.style.display = "block";
     }
+
+    // Función para redireccionar a la página de productos
+    function verProductos() {
+        alert("Redireccionando a la página de Productos");
+        // Aquí puedes agregar la lógica de redirección
+    }
+
+    // Función para redireccionar a la página de perfil de usuario
+    function perfilUsuario() {
+        alert("Redireccionando a la página de Perfil de Usuario");
+        // Aquí puedes agregar la lógica de redirección
+    }
+
+    // Función para agregar un producto al carrito
+    function agregarAlCarrito() {
+        alert("Producto agregado al carrito");
+        // Aquí puedes agregar la lógica de agregar al carrito
+    }
+
+    // Función para abrir un modal específico
+    function abrirModal(idModal) {
+        var modal = document.getElementById(idModal);
+        modal.style.display = "block";
+    }
+
+    // Función para cerrar un modal específico
+    function cerrarModal(idModal) {
+        var modal = document.getElementById(idModal);
+        modal.style.display = "none";
+    }
+
+   // Función para procesar el pago
+function pagar() {
+    alert("¡Pago procesado con éxito!");
 }
 
-// Función para mostrar todos los productos
-function verProductos() {
-    // Mostrar todos los productos
-    var productos = document.querySelectorAll('.producto');
-    productos.forEach(function(producto) {
-        producto.style.display = 'block';
-    });
-}
-// Función para regresar al inicio
-function regresarAlInicio() {
-    // Ocultar el formulario de inicio de sesión
-    var loginForm = document.getElementById("loginForm");
-    loginForm.style.display = "none";
-    
-    // Mostrar el contenido principal
-    var contenidoPrincipal = document.querySelector('.productos-container');
-    contenidoPrincipal.style.display = 'block';
+// Función para mostrar el mensaje en el botón "Comprar"
+function comprar() {
+    alert("¡Gracias por tu compra!");
 }
 
-    </script>
-    <!-- Aviso de legalidad con botón de aceptar -->
+    // Función para mostrar la descripción de un producto
+    function mostrarDescripcion(idDescripcion) {
+        var descripcion = document.getElementById(idDescripcion);
+        if (descripcion.style.display === "none") {
+            descripcion.style.display = "block";
+        } else {
+            descripcion.style.display = "none";
+        }
+    }
+
+    // Función para cerrar el modal al hacer clic fuera de él
+    window.onclick = function(event) {
+        var modals = document.getElementsByClassName("modal");
+        for (var i = 0; i < modals.length; i++) {
+            var modal = modals[i];
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+
+    // Función para mostrar los cuatro productos más vendidos
+    function mostrarProductosMasVendidos() {
+        var productos = document.querySelectorAll('.producto');
+        productos.forEach(function(producto, index) {
+            if (index < 4) {
+                producto.style.display = 'block';
+            } else {
+                producto.style.display = 'none';
+            }
+        });
+    }
+
+    // Función para mostrar todos los productos
+    function verProductos() {
+        var productos = document.querySelectorAll('.producto');
+        productos.forEach(function(producto) {
+            producto.style.display = 'block';
+        });
+    }
+
+    // Función para regresar al inicio
+    function regresarAlInicio() {
+        var loginForm = document.getElementById("loginForm");
+        loginForm.style.display = "none";
+        
+        var contenidoPrincipal = document.querySelector('.productos-container');
+        contenidoPrincipal.style.display = 'block';
+    }
+
+    // Función para aceptar el aviso de legalidad y ocultarlo
+    function aceptarAviso() {
+        var aviso = document.getElementById("avisoLegal");
+        aviso.style.display = "none";
+    }
+
+    // Función para mostrar el aviso de cookies al cargar la página
+    window.onload = function() {
+        var aviso = document.getElementById("avisoLegal");
+        aviso.style.display = "block";
+    }
+
+    // Función para mostrar solo el contenido de un producto específico en la ventana modal
+    function mostrarProducto(idProducto) {
+        var productoSeleccionado = document.getElementById(idProducto);
+        if (productoSeleccionado) {
+            document.getElementById('productoDetalle').innerHTML = productoSeleccionado.innerHTML;
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+        }
+    }
+
+    // Función para cerrar la ventana modal
+    function cerrarModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = 'none';
+    }
+
+    // Array para almacenar los productos en el carrito
+    var carrito = [];
+
+    // Función para agregar un producto al carrito
+    function agregarAlCarrito(nombreProducto, descripcionProducto, precioProducto) {
+        var producto = {
+            nombre: nombreProducto,
+            descripcion: descripcionProducto,
+            precio: precioProducto
+        };
+        carrito.push(producto);
+        alert("Producto agregado al carrito");
+        mostrarCarrito();
+    }
+
+    // Función para mostrar el contenido del carrito en la ventana modal
+    function mostrarCarrito() {
+        var modalContent = document.getElementById("carritoContenido");
+        if (carrito.length === 0) {
+            modalContent.innerHTML = "<p>No hay productos en el carrito.</p>";
+        } else {
+            var listaProductos = "<ul>";
+            carrito.forEach(function(producto) {
+                listaProductos += "<li><strong>" + producto.nombre + "</strong>: " + producto.descripcion + " - Precio: $" + producto.precio + "</li>";
+            });
+            listaProductos += "</ul>";
+            modalContent.innerHTML = listaProductos;
+        }
+    }
+</script>
+
+<!-- Modal de Aviso Legal -->
 <div id="avisoLegal" class="modal">
     <div class="modal-content">
         <h2>Aviso Legal</h2>
@@ -540,21 +592,18 @@ function regresarAlInicio() {
     </div>
 </div>
 
-<script>
-    // Función para aceptar el aviso de legalidad y ocultarlo
-    function aceptarAviso() {
-        var aviso = document.getElementById("avisoLegal");
-        aviso.style.display = "none";
-    }
-</script>
-<script>
-    // Mostrar el aviso de cookies al cargar la página
-    window.onload = function() {
-        var aviso = document.getElementById("avisoLegal");
-        aviso.style.display = "block";
-    }
-</script>
+<!-- Modal de Carrito de Compras -->
+<div id="carritoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal('carritoModal')">&times;</span>
+        <h2>Carrito de Compras</h2>
+        <div id="carritoContenido"></div>
+        <button onclick="pagar()">Pagar</button>
+    </div>
+</div>
 
+<!-- Otros elementos HTML -->
+<!-- Coloca aquí los elementos HTML restantes de tu página -->
 
 </body>
 </html>
