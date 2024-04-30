@@ -233,78 +233,102 @@
         </form>
         <p><a href="#">Crear nuevo usuario</a></p>
     </div>
-    
+     
     <div class="productos-container">
-        <!-- Primera fila de productos -->
         <div class="productos-row">
-            <!-- Primer producto -->
-            <div class="producto">
-                <!-- Contenido del primer producto -->
+          <div class="producto"id="kitArduino">
+    
                 <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/KIT%20DE%20ARDUINO.jpg?raw=true" alt="Producto 1" style="width: 200px; height: auto;">
                 <h3>KIT ARDUINO</h3>
                 <button onclick="mostrarDescripcion('descripcion1')">Ver Descripción</button>
+                
+                     <button onclick="mostrarProducto('kitArduino')">Ver Más</button>
+
                 <div id="descripcion1" style="display:none;">
                     <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
-                    <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                    <p>Precio: $1000.00</p>
+                    <button onclick="agregarAlCarrito('KIT ARDUINO', 'TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo', 1000)">Agregar al Carrito</button>
+                     <button onclick="comprar()">Comprar</button>
                 </div>
             </div>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close" onclick="cerrarModal()">&times;</span>
+                  <div id="productoDetalle"></div>
+                </div>
+              </div>
+            
 
             <!-- Segundo producto -->
-            <div class="producto">
-                <!-- Contenido del segundo producto -->
-                <img src="https://raw.githubusercontent.com/Alduski/ELECTROTEC.github.io/main/arduino%20uno.webp" alt="Producto 1" style="width: 200px; height: auto;">
-                <h3>KIT ARDUINO</h3>
+            
+                <div class="producto" id="ARDUINONANO">
+                <img src="https://raw.githubusercontent.com/Alduski/ELECTROTEC.github.io/main/arduino%20uno.webp" alt="Producto 2" style="width: 200px; height: auto;">
+                <h3>ARDUINO NANO</h3>
                 <button onclick="mostrarDescripcion('descripcion2')">Ver Descripción</button>
                 <div id="descripcion2" style="display:none;">
-                    <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
+                    <p>El Arduino Nano es una placa de microcontrolador de código abierto basada en el microcontrolador Microchip ATmega328P y desarrollada por Arduino.cc </p>
+                    <p>Precio: $50.00</p>
                     <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                     <button onclick="comprar()">Comprar</button>
                 </div>
             </div>
 
             <!-- Tercer producto -->
-            <div class="producto">
-                <!-- Contenido del tercer producto -->
-                <img src="https://raw.githubusercontent.com/Alduski/ELECTROTEC.github.io/main/bOMBA%20DE%20AGUA%20ARDUINO.webp" alt="Producto 1" style="width: 200px; height: auto;">
-                <h3>KIT ARDUINO</h3>
+            
+                <div class="producto" id="BOMBAAGUA">
+                <img src="https://raw.githubusercontent.com/Alduski/ELECTROTEC.github.io/main/bOMBA%20DE%20AGUA%20ARDUINO.webp" alt="Producto 3" style="width: 200px; height: auto;">
+                <h3>BOMBA DE AGUA</h3>
                 <button onclick="mostrarDescripcion('descripcion3')">Ver Descripción</button>
                 <div id="descripcion3" style="display:none;">
-                    <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
+                    <p>Mini bomba sumergible de agua silenciosa para Arduino Uno, cargador de teléfono móvil refrigerado por agua o unidad USB, CC de 3V y 5V</p>
+                    <p>Precio: $30.00</p>
+                     <button onclick="comprar()">Comprar</button>
                     <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                    
                 </div>
             </div>
         </div>
 
         <!-- Segunda fila de productos -->
         <div class="productos-row">
-            <!-- Cuarto producto -->
-            <div class="producto">
-                <img src="https://raw.githubusercontent.com/Alduski/ELECTROTEC.github.io/main/arduino%20nano.webp" alt="Producto 1" style="width: 200px; height: auto;">
-                <h3>KIT ARDUINO</h3>
+            
+            
+                <div class="producto" id="ARDUINOUNO">
+                <img src="https://raw.githubusercontent.com/Alduski/ELECTROTEC.github.io/main/arduino%20nano.webp" alt="Producto 4" style="width: 200px; height: auto;">
+                <h3>ARDUINO UNO</h3>
                 <button onclick="mostrarDescripcion('descripcion4')">Ver Descripción</button>
                 <div id="descripcion4" style="display:none;">
-                    <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
+                    <p>Arduino es una plataforma de hardware, software y contenido de código abierto con una comunidad internacional de más de 30 millones de usuarios activos.</p>
+                    <p>Precio: $150.00</p>
+                     <button onclick="comprar()">Comprar</button>
                     <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
                 </div>
             </div>
 
             <!-- Quinto producto -->
-            <div class="producto">
-                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/led.jpeg?raw=true" alt="Producto 1" style="width: 200px; height: auto;">
-                <h3>KIT ARDUINO</h3>
+            
+                <div class="producto" id="LED">
+                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/led.jpeg?raw=true" alt="Producto 5" style="width: 200px; height: auto;">
+                <h3>LED</h3>
                 <button onclick="mostrarDescripcion('descripcion5')">Ver Descripción</button>
                 <div id="descripcion5" style="display:none;">
-                    <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
+                    <p>25 piezas de chips LED, 3W LED de alta potencia perlas de diodo emisor de chips para diy accesorios de iluminación(3.2-3.4V Royal Blue 445-450NM)</p>
+                    <p>Precio: $25.00</p>
+                     <button onclick="comprar()">Comprar</button>
                     <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
                 </div>
             </div>
 
             <!-- Sexto producto -->
-            <div class="producto">
-                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/sensor%20de%20agua.jpeg?raw=true" alt="Producto 1" style="width: 200px; height: auto;">
-                <h3>KIT ARDUINO</h3>
+            
+                <div class="producto" id="SENSORAGUA">
+                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/sensor%20de%20agua.jpeg?raw=true" alt="Producto 6" style="width: 200px; height: auto;">
+                <h3>SENSOR DE AGUA</h3>
                 <button onclick="mostrarDescripcion('descripcion6')">Ver Descripción</button>
                 <div id="descripcion6" style="display:none;">
-                    <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
+                    <p>DGZZI - Módulo de sensor de nivel de agua, 2 unidades, nivel de agua de lluvia, superficie líquida, sensor de profundidad</p>
+                    <p>Precio: $35.00</p>
+                     <button onclick="comprar()">Comprar</button>
                     <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
                 </div>
             </div>
@@ -312,54 +336,63 @@
 
         <!-- Tercera fila de productos -->
         <div class="productos-row">
-            <!-- Séptimo producto -->
-            <div class="producto">
-                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/Snesor%20humedad.jpeg?raw=true" alt="Producto 1" style="width: 200px; height: auto;">
-                <h3>KIT ARDUINO</h3>
+            <div class="producto" id="SENSORHUMEDAD">
+            
+                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/Snesor%20humedad.jpeg?raw=true" alt="Producto 7" style="width: 200px; height: auto;">
+                <h3>SENSOR HUMEDAD</h3>
                 <button onclick="mostrarDescripcion('descripcion7')">Ver Descripción</button>
                 <div id="descripcion7" style="display:none;">
-                    <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
+                    <p>Aplicando una pequeña tensión entre los terminales del módulo YL - 69 hace pasar una corriente que depende básicamente de la resistencia que se genera en el suelo y ésta depende mucho de la humedad.</p>
+                    <p>Precio: $390.00</p>
+                     <button onclick="comprar()">Comprar</button>
                     <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
                 </div>
             </div>
 
             <!-- Octavo producto -->
-            <div class="producto">
-                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/Resistencia.jpeg?raw=true" alt="Producto 1" style="width: 200px; height: auto;">
-                <h3>KIT ARDUINO</h3>
+            
+                <div class="producto" id="RESISTENCIA">
+                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/Resistencia.jpeg?raw=true" alt="Producto 8" style="width: 200px; height: auto;">
+                <h3>RESISTENCIA</h3>
                 <button onclick="mostrarDescripcion('descripcion8')">Ver Descripción</button>
                 <div id="descripcion8" style="display:none;">
-                    <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
+                    <p>1000 Piezas 50 Valores Kit de Resistencia, 50x20 1 Ohm-1M Ohm Con Precisión 1% 1/4 W de Película de Carbono Surtido</p>
+                    <p>Precio: $100.00</p>
+                     <button onclick="comprar()">Comprar</button>
                     <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
                 </div>
             </div>
 
             <!-- Noveno producto -->
-            <div class="producto">
-                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/Protoboard.jpeg?raw=true" alt="Producto 1" style="width: 200px; height: auto;">
-                <h3>KIT ARDUINO</h3>
+            
+                <div class="producto" id="PROTO">
+                <img src="https://github.com/Alduski/ELECTROTEC.github.io/blob/main/Protoboard.jpeg?raw=true" alt="Producto 9" style="width: 200px; height: auto;">
+                <h3>PROTOBOARD</h3>
                 <button onclick="mostrarDescripcion('descripcion9')">Ver Descripción</button>
                 <div id="descripcion9" style="display:none;">
-                    <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
+                    <p>2Pcs Breadboard 830 Point Solderless Prototype PCB Board Kit Protoboard MB-102</p>
+                    <p>Precio: $300.00</p>
+                     <button onclick="comprar()">Comprar</button>
                     <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
                 </div>
             </div>
         </div>
 
-    <!-- Aquí se agregarían más filas de productos según sea necesario -->
-     <!-- Tercera fila de productos -->
+    
      <div class="productos-row">
-        <!-- Décimo producto -->
-        <div class="producto">
-            <img src="https://raw.githubusercontent.com/Alduski/ELECTROTEC.github.io/main/servomotror.webp" alt="Producto 1" style="width: 200px; height: auto;">
-            <h3>KIT ARDUINO</h3>
+       
+            <div class="producto" id="SERVOMO">
+            <img src="https://raw.githubusercontent.com/Alduski/ELECTROTEC.github.io/main/servomotror.webp" alt="Producto 10" style="width: 200px; height: auto;">
+            <h3>SERVOMOTOR</h3>
             <button onclick="mostrarDescripcion('descripcion10')">Ver Descripción</button>
             <div id="descripcion10" style="display:none;">
-                <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
+                <p>Kit de Micro Servo Motor de 10 Uds., Modelo de Avión de Ala Fija, Control Remoto, Módulo de Controlador de Servidor DIY</p>
+                <p>Precio: $500.00</p>
+                     <button onclick="comprar()">Comprar</button>
                 <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
             </div>
         </div>
-    </div>
+    </div> 
 
     <footer>
         <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
