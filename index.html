@@ -212,6 +212,7 @@
         <div class="left-buttons">
             <button onclick="mostrarProductosMasVendidos()">Inicio</button>
             <button onclick="verProductos()">Productos</button>
+             <input type="text" id="buscador" placeholder="Buscar productos">
             <button onclick="abrirModal('contactoModal')">Contacto</button>
         </div>
         <div class="right-buttons">
@@ -580,6 +581,26 @@ function comprar() {
             modalContent.innerHTML = listaProductos;
         }
     }
+</script>
+        <script>
+    // Función para buscar productos
+    function buscarProductos() {
+        var input = document.getElementById("buscador");
+        var filtro = input.value.toUpperCase(); // Convertir el texto a mayúsculas para hacer la búsqueda insensible a mayúsculas y minúsculas
+        var productos = document.querySelectorAll('.producto');
+
+        productos.forEach(function(producto) {
+            var nombreProducto = producto.querySelector('h3').innerText.toUpperCase();
+            if (nombreProducto.indexOf(filtro) > -1) {
+                producto.style.display = "";
+            } else {
+                producto.style.display = "none";
+            }
+        });
+    }
+
+    // Agrega un evento de escucha para el campo de búsqueda
+    document.getElementById("buscador").addEventListener("keyup", buscarProductos);
 </script>
 
 <!-- Modal de Aviso Legal -->
