@@ -243,6 +243,18 @@
         </form>
         <p><a href="#">Crear nuevo usuario</a></p>
     </div>
+
+    <div id="carritoModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('carritoModal')">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <ul id="carritoProductos"></ul>
+            <p>Total: <span id="carritoTotal">$0.00</span></p>
+            <button onclick="realizarCompra()">Realizar Compra</button>
+            <button onclick="cerrarModal('carritoModal')">Cerrar</button>
+        </div>
+    </div>
+
     
     <div class="productos-container">
         <div class="productos-row">
@@ -258,10 +270,24 @@
                 <div id="descripcion1" style="display:none;">
                     <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
                     <p>Precio: $1000.00</p>
-                    <button onclick="agregarAlCarrito('KIT ARDUINO', 'TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo', 1000)">Agregar al Carrito</button>
-                     <button onclick="comprar()">Comprar</button>
-                </div>
+                     <button onclick="comprar()">Comprar</button> 
+                     <script src="https://www.paypal.com/sdk/js?client-id=BAAPt1Nb7R2qiK6xeAL0YMFXp5L6XQitywJ9P75ZnL26VrfsnYsQHxlf1fLIC48xlzQ_SJIAK7U2fZtxIs&components=hosted-buttons&disable-funding=venmo&currency=MXN"></script>
+                     <div id="paypal-container-9SJ2FCCDPAM8Q"></div>
+                     <script>
+                       paypal.HostedButtons({
+                         hostedButtonId: "9SJ2FCCDPAM8Q",
+                       }).render("#paypal-container-9SJ2FCCDPAM8Q")
+                     </script>
+                     <div id="smart-button-container">
+                        <div style="text-align: center;">
+                          <div id="paypal-button-container"></div>
+                        </div>
+                      </div>       
+                     <button onclick="agregarAlCarrito('KIT ARDUINO', 1000)">Agregar al Carrito</button>
+                </div> 
             </div>
+
+            
             <div id="myModal" class="modal">
                 <div class="modal-content">
                   <span class="close" onclick="cerrarModal()">&times;</span>
@@ -277,11 +303,13 @@
                     <title>arduinonano</title>
                 <h3>ARDUINO NANO</h3>
                 <button onclick="mostrarDescripcion('descripcion2')">Ver Descripción</button>
+                <button onclick="mostrarProducto('ARDUINONANO')">Ver Más</button>
                 <div id="descripcion2" style="display:none;">
                     <p>El Arduino Nano es una placa de microcontrolador de código abierto basada en el microcontrolador Microchip ATmega328P y desarrollada por Arduino.cc </p>
                     <p>Precio: $50.00</p>
-                    <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
                      <button onclick="comprar()">Comprar</button>
+
+                     <button onclick="agregarAlCarrito('ARDUINO NANO', 50)">Agregar al Carrito</button>
                 </div>
             </div>
 
@@ -292,11 +320,12 @@
                     
                 <h3>BOMBA DE AGUA</h3>
                 <button onclick="mostrarDescripcion('descripcion3')">Ver Descripción</button>
+                <button onclick="mostrarProducto('BOMBAAGUA')">Ver Más</button>
                 <div id="descripcion3" style="display:none;">
                     <p>Mini bomba sumergible de agua silenciosa para Arduino Uno, cargador de teléfono móvil refrigerado por agua o unidad USB, CC de 3V y 5V</p>
                     <p>Precio: $30.00</p>
                      <button onclick="comprar()">Comprar</button>
-                    <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                     <button onclick="agregarAlCarrito('BOMBA AGUA', 30)">Agregar al Carrito</button>
                     
                 </div>
             </div>
@@ -311,11 +340,12 @@
                   
                 <h3>ARDUINO UNO</h3>
                 <button onclick="mostrarDescripcion('descripcion4')">Ver Descripción</button>
+                <button onclick="mostrarProducto('ARDUINOUNO')">Ver Más</button>
                 <div id="descripcion4" style="display:none;">
                     <p>Arduino es una plataforma de hardware, software y contenido de código abierto con una comunidad internacional de más de 30 millones de usuarios activos.</p>
                     <p>Precio: $150.00</p>
                      <button onclick="comprar()">Comprar</button>
-                    <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                     <button onclick="agregarAlCarrito('ARDUINO UNO', 150)">Agregar al Carrito</button>
                 </div>
             </div>
 
@@ -326,11 +356,12 @@
                     
                 <h3>LED</h3>
                 <button onclick="mostrarDescripcion('descripcion5')">Ver Descripción</button>
+                <button onclick="mostrarProducto('LED')">Ver Más</button>
                 <div id="descripcion5" style="display:none;">
                     <p>25 piezas de chips LED, 3W LED de alta potencia perlas de diodo emisor de chips para diy accesorios de iluminación(3.2-3.4V Royal Blue 445-450NM)</p>
                     <p>Precio: $25.00</p>
                      <button onclick="comprar()">Comprar</button>
-                    <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                     <button onclick="agregarAlCarrito('LED', 25)">Agregar al Carrito</button>
                 </div>
             </div>
 
@@ -341,11 +372,12 @@
                     
                 <h3>SENSOR DE AGUA</h3>
                 <button onclick="mostrarDescripcion('descripcion6')">Ver Descripción</button>
+                <button onclick="mostrarProducto('SENSORAGUA')">Ver Más</button>
                 <div id="descripcion6" style="display:none;">
                     <p>DGZZI - Módulo de sensor de nivel de agua, 2 unidades, nivel de agua de lluvia, superficie líquida, sensor de profundidad</p>
                     <p>Precio: $35.00</p>
                      <button onclick="comprar()">Comprar</button>
-                    <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                     <button onclick="agregarAlCarrito('SENSOR AGUA', 35)">Agregar al Carrito</button>
                 </div>
             </div>
         </div>
@@ -358,11 +390,12 @@
                
                 <h3>SENSOR HUMEDAD</h3>
                 <button onclick="mostrarDescripcion('descripcion7')">Ver Descripción</button>
+                <button onclick="mostrarProducto('SENSORHUMEDAD')">Ver Más</button>
                 <div id="descripcion7" style="display:none;">
                     <p>Aplicando una pequeña tensión entre los terminales del módulo YL - 69 hace pasar una corriente que depende básicamente de la resistencia que se genera en el suelo y ésta depende mucho de la humedad.</p>
                     <p>Precio: $390.00</p>
                      <button onclick="comprar()">Comprar</button>
-                    <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                     <button onclick="agregarAlCarrito('SENSOR HUMEDAD', 390)">Agregar al Carrito</button>
                 </div>
             </div>
 
@@ -373,11 +406,12 @@
                   
                 <h3>RESISTENCIA</h3>
                 <button onclick="mostrarDescripcion('descripcion8')">Ver Descripción</button>
+                <button onclick="mostrarProducto('RESISTENCIA')">Ver Más</button>
                 <div id="descripcion8" style="display:none;">
                     <p>1000 Piezas 50 Valores Kit de Resistencia, 50x20 1 Ohm-1M Ohm Con Precisión 1% 1/4 W de Película de Carbono Surtido</p>
                     <p>Precio: $100.00</p>
                      <button onclick="comprar()">Comprar</button>
-                    <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                     <button onclick="agregarAlCarrito('RESISTENCIA', 100)">Agregar al Carrito</button>
                 </div>
             </div>
 
@@ -388,11 +422,12 @@
                    
                 <h3>PROTOBOARD</h3>
                 <button onclick="mostrarDescripcion('descripcion9')">Ver Descripción</button>
+                <button onclick="mostrarProducto('PROTO')">Ver Más</button>
                 <div id="descripcion9" style="display:none;">
                     <p>2Pcs Breadboard 830 Point Solderless Prototype PCB Board Kit Protoboard MB-102</p>
                     <p>Precio: $300.00</p>
                      <button onclick="comprar()">Comprar</button>
-                    <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                     <button onclick="agregarAlCarrito('PROTOBOARD', 300)">Agregar al Carrito</button>
                 </div>
             </div>
         </div>
@@ -401,15 +436,17 @@
      <div class="productos-row">
        
             <div class="producto" id="SERVOMO">
+            
             <img src="https://raw.githubusercontent.com/Alduski/ELECTROTEC.github.io/main/servomotror.webp" alt="Producto 10" title="SERVOMOTOR" style="width: 200px; height: auto;">
                 <title>servomotor</title>
             <h3>SERVOMOTOR</h3>
             <button onclick="mostrarDescripcion('descripcion10')">Ver Descripción</button>
+            <button onclick="mostrarProducto('SERVOMO')">Ver Más</button>
             <div id="descripcion10" style="display:none;">
                 <p>Kit de Micro Servo Motor de 10 Uds., Modelo de Avión de Ala Fija, Control Remoto, Módulo de Controlador de Servidor DIY</p>
                 <p>Precio: $500.00</p>
                      <button onclick="comprar()">Comprar</button>
-                <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+                     <button onclick="agregarAlCarrito('SERVOMOTOR', 500)">Agregar al Carrito</button>
             </div>
         </div>
     </div>
@@ -417,16 +454,6 @@
     <footer>
         <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
     </footer>
-
-    <!-- carrito -->
-    <div id="carritoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="cerrarModal('carritoModal')">&times;</span>
-            <h2>Carrito de Compras</h2>
-            <p>No hay productos en el carrito.</p>
-            <button onclick="pagar()">Pagar</button>
-        </div>
-    </div>
 
     <!--  contacto -->
     <div id="contactoModal" class="modal">
@@ -464,12 +491,6 @@
     function perfilUsuario() {
         alert("Redireccionando a la página de Perfil de Usuario");
         // Aquí puedes agregar la lógica de redirección
-    }
-
-    // Función para agregar un producto al carrito
-    function agregarAlCarrito() {
-        alert("Producto agregado al carrito");
-        // Aquí puedes agregar la lógica de agregar al carrito
     }
 
     // Función para abrir un modal específico
@@ -572,37 +593,8 @@ function comprar() {
         modal.style.display = 'none';
     }
 
-    // Array para almacenar los productos en el carrito
-    var carrito = [];
-
-    // Función para agregar un producto al carrito
-    function agregarAlCarrito(nombreProducto, descripcionProducto, precioProducto) {
-        var producto = {
-            nombre: nombreProducto,
-            descripcion: descripcionProducto,
-            precio: precioProducto
-        };
-        carrito.push(producto);
-        alert("Producto agregado al carrito");
-        mostrarCarrito();
-    }
-
-    // Función para mostrar el contenido del carrito en la ventana modal
-    function mostrarCarrito() {
-        var modalContent = document.getElementById("carritoContenido");
-        if (carrito.length === 0) {
-            modalContent.innerHTML = "<p>No hay productos en el carrito.</p>";
-        } else {
-            var listaProductos = "<ul>";
-            carrito.forEach(function(producto) {
-                listaProductos += "<li><strong>" + producto.nombre + "</strong>: " + producto.descripcion + " - Precio: $" + producto.precio + "</li>";
-            });
-            listaProductos += "</ul>";
-            modalContent.innerHTML = listaProductos;
-        }
-    }
-</script>
-        <script>
+    
+    
     // Función para buscar productos
     function buscarProductos() {
         var input = document.getElementById("buscador");
@@ -633,18 +625,100 @@ function comprar() {
     </div>
 </div>
 
-<!-- Modal de Carrito de Compras -->
-<div id="carritoModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="cerrarModal('carritoModal')">&times;</span>
-        <h2>Carrito de Compras</h2>
-        <div id="carritoContenido"></div>
-        <button onclick="pagar()">Pagar</button>
-    </div>
-</div>
+
 
 <!-- Otros elementos HTML -->
 <!-- Coloca aquí los elementos HTML restantes de tu página -->
+
+
+<!-- Script JavaScript para agregar productos al carrito -->
+<script>
+   // Variables globales para mantener el estado del carrito
+   let carrito = [];
+    let totalCarrito = 0;
+
+    // Función para mostrar el contenido del carrito en el modal correspondiente
+    function mostrarCarrito() {
+        const carritoProductos = document.getElementById('carritoProductos');
+        carritoProductos.innerHTML = ''; // Limpiar la lista antes de volver a mostrar los productos
+
+        carrito.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.nombre} - $${item.precio}`;
+            carritoProductos.appendChild(li);
+        });
+
+        // Actualizar el total del carrito
+        const carritoTotal = document.getElementById('carritoTotal');
+        carritoTotal.textContent = `$${totalCarrito.toFixed(2)}`;
+    }
+
+    // Función para agregar un producto al carrito
+    function agregarAlCarrito(nombre, precio) {
+        carrito.push({ nombre, precio });
+        totalCarrito += precio;
+        mostrarCarrito();
+    }
+
+    // Función para realizar la compra (simulación)
+    function realizarCompra() {
+        alert('Compra realizada correctamente. Gracias por su compra!');
+        carrito = [];
+        totalCarrito = 0;
+        mostrarCarrito(); // Actualizar el carrito después de la compra
+        cerrarModal('carritoModal');
+    }
+
+    // Función para abrir un modal
+    function abrirModal(idModal) {
+        const modal = document.getElementById(idModal);
+        modal.style.display = 'block';
+    }
+
+    // Función para cerrar un modal
+    function cerrarModal(idModal) {
+        const modal = document.getElementById(idModal);
+        modal.style.display = 'none';
+    }
+</script>
+<script src="https://www.paypal.com/sdk/js?client-id=AZupMqYTJDO5w40NUQOm-4jTtSywHNji3D_0xSdjUUfLm6V9oYjj2umZ486y4MRdQOuzNTZUC-Nr9rpp&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'pay',
+          
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"description":"LA DESCRIPCION DE TU PRODUCTO","amount":{"currency_code":"USD","value":13}}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(orderData) {
+            
+            // Full available details
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+ 
+actions.redirect('LA URL DE TU PAGINA DE GRACIAS');
+            
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
+
+
 
 </body>
 </html>
