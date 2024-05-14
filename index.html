@@ -250,7 +250,7 @@
             <h2>Carrito de Compras</h2>
             <ul id="carritoProductos"></ul>
             <p>Total: <span id="carritoTotal">$0.00</span></p>
-            <button onclick="realizarCompra()">Realizar Compra</button>
+            <button onclick="abrirModalCarrito()">Realizar compra</button>
             <button onclick="cerrarModal('carritoModal')">Cerrar</button>
         </div>
     </div>
@@ -271,18 +271,9 @@
                     <p>TZT-Kit de iniciación RFID para Arduino Uno R3, placa de pruebas y soporte, Motor paso a paso, Servo, 1602 LCD, cable de puente, Uno R3, el más nuevo</p>
                     <p>Precio: $1000.00</p>
                      <button onclick="comprar()">Comprar</button> 
-                     <script src="https://www.paypal.com/sdk/js?client-id=BAAPt1Nb7R2qiK6xeAL0YMFXp5L6XQitywJ9P75ZnL26VrfsnYsQHxlf1fLIC48xlzQ_SJIAK7U2fZtxIs&components=hosted-buttons&disable-funding=venmo&currency=MXN"></script>
-                     <div id="paypal-container-9SJ2FCCDPAM8Q"></div>
-                     <script>
-                       paypal.HostedButtons({
-                         hostedButtonId: "9SJ2FCCDPAM8Q",
-                       }).render("#paypal-container-9SJ2FCCDPAM8Q")
-                     </script>
-                     <div id="smart-button-container">
-                        <div style="text-align: center;">
-                          <div id="paypal-button-container"></div>
-                        </div>
-                      </div>       
+                     <script src="https://www.paypal.com/sdk/js?client-id=AX0ygY-0mtGaNUmqfD_U_0M41wCdmBsWwkUoJJxNCiApTnQNr_tO5v8KaQzY5Lt_eL8AJldlEZP2lOmd&currency=MXN"></script>
+<div id="paypal-button-container1"></div>
+
                      <button onclick="agregarAlCarrito('KIT ARDUINO', 1000)">Agregar al Carrito</button>
                 </div> 
             </div>
@@ -308,8 +299,8 @@
                     <p>El Arduino Nano es una placa de microcontrolador de código abierto basada en el microcontrolador Microchip ATmega328P y desarrollada por Arduino.cc </p>
                     <p>Precio: $50.00</p>
                      <button onclick="comprar()">Comprar</button>
-
                      <button onclick="agregarAlCarrito('ARDUINO NANO', 50)">Agregar al Carrito</button>
+                     <div id="paypal-button-container2"></div>
                 </div>
             </div>
 
@@ -326,6 +317,7 @@
                     <p>Precio: $30.00</p>
                      <button onclick="comprar()">Comprar</button>
                      <button onclick="agregarAlCarrito('BOMBA AGUA', 30)">Agregar al Carrito</button>
+                     <div id="paypal-button-container3"></div>
                     
                 </div>
             </div>
@@ -346,6 +338,7 @@
                     <p>Precio: $150.00</p>
                      <button onclick="comprar()">Comprar</button>
                      <button onclick="agregarAlCarrito('ARDUINO UNO', 150)">Agregar al Carrito</button>
+                     <div id="paypal-button-container4"></div>
                 </div>
             </div>
 
@@ -362,6 +355,7 @@
                     <p>Precio: $25.00</p>
                      <button onclick="comprar()">Comprar</button>
                      <button onclick="agregarAlCarrito('LED', 25)">Agregar al Carrito</button>
+                     <div id="paypal-button-container5"></div>
                 </div>
             </div>
 
@@ -378,6 +372,7 @@
                     <p>Precio: $35.00</p>
                      <button onclick="comprar()">Comprar</button>
                      <button onclick="agregarAlCarrito('SENSOR AGUA', 35)">Agregar al Carrito</button>
+                     <div id="paypal-button-container6"></div>
                 </div>
             </div>
         </div>
@@ -396,6 +391,7 @@
                     <p>Precio: $390.00</p>
                      <button onclick="comprar()">Comprar</button>
                      <button onclick="agregarAlCarrito('SENSOR HUMEDAD', 390)">Agregar al Carrito</button>
+                     <div id="paypal-button-container7"></div>
                 </div>
             </div>
 
@@ -412,6 +408,7 @@
                     <p>Precio: $100.00</p>
                      <button onclick="comprar()">Comprar</button>
                      <button onclick="agregarAlCarrito('RESISTENCIA', 100)">Agregar al Carrito</button>
+                     <div id="paypal-button-container8"></div>
                 </div>
             </div>
 
@@ -428,6 +425,7 @@
                     <p>Precio: $300.00</p>
                      <button onclick="comprar()">Comprar</button>
                      <button onclick="agregarAlCarrito('PROTOBOARD', 300)">Agregar al Carrito</button>
+                     <div id="paypal-button-container9"></div>
                 </div>
             </div>
         </div>
@@ -447,6 +445,7 @@
                 <p>Precio: $500.00</p>
                      <button onclick="comprar()">Comprar</button>
                      <button onclick="agregarAlCarrito('SERVOMOTOR', 500)">Agregar al Carrito</button>
+                     <div id="paypal-button-container10"></div>
             </div>
         </div>
     </div>
@@ -681,43 +680,47 @@ function comprar() {
         modal.style.display = 'none';
     }
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id=AZupMqYTJDO5w40NUQOm-4jTtSywHNji3D_0xSdjUUfLm6V9oYjj2umZ486y4MRdQOuzNTZUC-Nr9rpp&currency=USD" data-sdk-integration-source="button-factory"></script>
-  <script>
-    function initPayPalButton() {
-      paypal.Buttons({
-        style: {
-          shape: 'rect',
-          color: 'gold',
-          layout: 'vertical',
-          label: 'pay',
-          
-        },
 
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{"description":"LA DESCRIPCION DE TU PRODUCTO","amount":{"currency_code":"USD","value":13}}]
-          });
-        },
-
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(orderData) {
-            
-            // Full available details
-            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
- 
-actions.redirect('LA URL DE TU PAGINA DE GRACIAS');
-            
-          });
-        },
-
-        onError: function(err) {
-          console.log(err);
-        }
-      }).render('#paypal-button-container');
+<script>
+    // Función para crear un pedido de PayPal para un producto específico
+    function createPayPalOrder(containerId, amount) {
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: amount.toFixed(2), // Asegura que el valor sea un string con dos decimales
+                            currency_code: 'MXN' // Cambia según tu moneda
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                // Código a ejecutar cuando se completa la compra
+                alert('¡Gracias por su compra!');
+            },
+            onCancel: function(data) {
+                // Código a ejecutar cuando se cancela el pago
+                alert('Pago cancelado');
+            }
+        }).render(containerId);
     }
-    initPayPalButton();
-  </script>
 
+    // Inicializar botones de PayPal para cada producto
+    createPayPalOrder('#paypal-button-container1', 1000);
+    createPayPalOrder('#paypal-button-container2', 50);
+    createPayPalOrder('#paypal-button-container3', 30);
+    createPayPalOrder('#paypal-button-container4', 150);
+    createPayPalOrder('#paypal-button-container5', 25);
+    createPayPalOrder('#paypal-button-container6', 35);
+    createPayPalOrder('#paypal-button-container7', 390);
+    createPayPalOrder('#paypal-button-container8', 100);
+    createPayPalOrder('#paypal-button-container9', 300);
+    createPayPalOrder('#paypal-button-container10', 500);
+   
+    
+  
+</script>
 
 
 </body>
