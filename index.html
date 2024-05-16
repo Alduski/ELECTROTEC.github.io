@@ -682,25 +682,25 @@ function comprar() {
 </script>
 
 <script>
-    // Función para crear un pedido de PayPal para un producto específico
+    // Función para crear un pedido de PayPal 
     function createPayPalOrder(containerId, amount) {
         paypal.Buttons({
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: amount.toFixed(2), // Asegura que el valor sea un string con dos decimales
-                            currency_code: 'MXN' // Cambia según tu moneda
+                            value: amount.toString() // Utiliza el monto pasado como parámetro
                         }
                     }]
                 });
             },
             onApprove: function(data, actions) {
-                // Código a ejecutar cuando se completa la compra
-                alert('¡Gracias por su compra!');
+                return actions.order.capture().then(function(details) {
+                    console.log(details);
+                    alert('¡Gracias por su compra!');
+                });
             },
             onCancel: function(data) {
-                // Código a ejecutar cuando se cancela el pago
                 alert('Pago cancelado');
             }
         }).render(containerId);
@@ -717,10 +717,12 @@ function comprar() {
     createPayPalOrder('#paypal-button-container8', 100);
     createPayPalOrder('#paypal-button-container9', 300);
     createPayPalOrder('#paypal-button-container10', 500);
-   
-    
-  
 </script>
+
+
+
+
+
 
 
 </body>
